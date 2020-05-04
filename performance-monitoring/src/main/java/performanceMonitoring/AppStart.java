@@ -1,7 +1,8 @@
-package dataBuryingPoint;
+package performanceMonitoring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import performanceMonitoring.utils.Recording;
 
 /**
  * @Description app start

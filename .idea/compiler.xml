@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="data-burying-point" />
         <module name="landing-page" />
+        <module name="performance-monitoring" />
       </profile>
     </annotationProcessing>
   </component>

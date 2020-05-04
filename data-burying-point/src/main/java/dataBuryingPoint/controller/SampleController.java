@@ -1,10 +1,13 @@
 package dataBuryingPoint.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import dataBuryingPoint.po.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.sun.management.OperatingSystemMXBean;
+import java.lang.management.ManagementFactory;
 
 /**
  * @Description SampleController
@@ -13,14 +16,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Version 1.0
  **/
 @Controller
-@EnableAutoConfiguration
+@RequestMapping(value = "dataBuryingPoint",method = RequestMethod.POST)
 public class SampleController {
-    @RequestMapping("/dataBuryingPoint")
+    @RequestMapping(value = "index")
     @ResponseBody
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
-    public static void main(String[] args) {
-        SpringApplication.run(SampleController.class, args);
+    public User index(User user) {
+        OperatingSystemMXBean mem = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+        System.out.println("Total RAM：" + mem.getTotalPhysicalMemorySize() / 1024 / 1024 + "MB");
+        System.out.println("Available　RAM：" + mem.getFreePhysicalMemorySize() / 1024 / 1024 + "MB");
+        System.out.println("SystemCpuLoad：" + (int)(mem.getSystemCpuLoad()*100)+"%");
+        System.out.println("ProcessCpuLoad：" + (int)(mem.getProcessCpuLoad()*100)+"%");
+        return user;
     }
 }
