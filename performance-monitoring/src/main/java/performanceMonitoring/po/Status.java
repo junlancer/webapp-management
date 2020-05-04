@@ -11,10 +11,10 @@ public class Status {
     private int availableRam;
 
     //cpu总占用
-    private int systemCpuLoad;
+    private double systemCpuLoad;
 
     //当前程序的cpu占用
-    private int processCpuLoad;
+    private double processCpuLoad;
 
     //时间戳
     private long timestamp;
@@ -35,7 +35,7 @@ public class Status {
         this.availableRam = availableRam;
     }
 
-    public int getSystemCpuLoad() {
+    public double getSystemCpuLoad() {
         return systemCpuLoad;
     }
 
@@ -43,7 +43,7 @@ public class Status {
         this.systemCpuLoad = systemCpuLoad;
     }
 
-    public int getProcessCpuLoad() {
+    public double getProcessCpuLoad() {
         return processCpuLoad;
     }
 

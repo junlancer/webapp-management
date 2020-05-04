@@ -36,15 +36,7 @@ public class GetStatusController {
     @RequestMapping(value = "index")
     @ResponseBody
     public List<Map<String, Object>> index(HttpServletRequest httpRequest) {
-        System.out.println(httpRequest.getLocalAddr());
-        //不能放在这边
-        new Thread(() -> {
-            try {
-                recording.record();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
+        //System.out.println(httpRequest.getLocalAddr());
         return monitor.getStatus();
     }
 }
